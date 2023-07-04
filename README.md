@@ -12,7 +12,7 @@ make
 make run
 ```
 
-- Nettoyer le répertoire des fichiers temporaires et de compilation ! SUPPRIME LES FICHIERS TELECHARGES ! :
+- Nettoyer le répertoire des fichiers temporaires et de compilation :
 ```sh
 make clean
 ```
