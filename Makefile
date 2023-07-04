@@ -1,4 +1,4 @@
-NAME		:= stabilite
+NAME		:= calculMental
 BUILD_DIR	:= .build
 SRC_DIR		:= src
 SRC_EXT		:= .c

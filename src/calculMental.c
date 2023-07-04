@@ -14,7 +14,7 @@ void scanfError(uint32_t valeur)
 {
   printf
   (
-    "Erreur : %d, valeur invalide.\n"
+    "Erreur : %u, valeur invalide.\n"
     "Sortie du programme.\n\n",
     valeur
   );
@@ -280,14 +280,15 @@ void SECPIL()
       }
 
       sleep(intervalle);
-      printf("\n\n\n\n\n\n\n\n\n\n");
+      printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
       sleep(intervalle);
 
       resultat += nb;
     }
 
+    printf("Entrez le résultat :\n");
     uint32_t entree;
-    uint32_t check = scanf("Entrez le résultat : %d\n", &entree);
+    uint32_t check = scanf("%u", &entree);
 
     if(check == -1)
     {
@@ -296,28 +297,21 @@ void SECPIL()
 
     if(entree == resultat)
     {
-      printf
-      (
-        "Test réussi !\n"
-      );
+      printf("Test réussi !\n");
     }
 
     else
     {
-      printf
-      (
-        "Echec du test. Le résultat était %d.\n",
-        resultat
-      );
+      printf("Echec du test. Le résultat était %u.\n", resultat);
     }
 
-    check =
-    scanf
+    printf
     (
-      "Continuer :\t- 1\n"
-      "Revenir au menu :\t- 2\n",
-      &choix
+      "Continuer :\t\t\t- 1\n"
+      "Revenir au menu :\t- 2\n"
     );
+
+    check = scanf("%u", &choix);
 
     if((check == -1) || (choix < 1) || (choix > 2))
     {
@@ -332,8 +326,9 @@ void sommes(uint32_t max)
   uint32_t nb2 = rand() % max;
   uint32_t resultat = nb1 + nb2;
 
+  printf("%u + %u = ", nb1, nb2);
   uint32_t entree;
-  uint32_t check = scanf("%d + %d = %d\n", nb1, nb2, &entree);
+  uint32_t check = scanf("%u", &entree);
 
   if((check == -1) || (entree < 0) || (entree > VALEURMAX))
   {
@@ -347,18 +342,19 @@ void sommes(uint32_t max)
 
   else
   {
-    printf("Faux. Le résultat était : %d\n\n", resultat);
+    printf("Faux. Le résultat était : %u\n\n", resultat);
   }
 }
 
-uint32_t soustractions(uint32_t max)
+void soustractions(uint32_t max)
 {
     uint32_t nb1 = rand() % max;
     uint32_t nb2 = rand() % (max - nb1);
     uint32_t resultat = nb1 - nb2;
 
+    printf("%u - %u = ", nb1, nb2);
     uint32_t entree;
-    uint32_t check = scanf("%d - %d = %d\n", nb1, nb2, &entree);
+    uint32_t check = scanf("%u", &entree);
 
     if((check == -1) || (entree < 0) || (entree > VALEURMAX))
     {
@@ -372,18 +368,19 @@ uint32_t soustractions(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %d\n\n", resultat);
+      printf("Faux. Le résultat était : %u\n\n", resultat);
     }
 }
 
-uint32_t produits(uint32_t max)
+void produits(uint32_t max)
 {
     uint32_t nb1 = rand() % max;
     uint32_t nb2 = rand() % max;
     uint32_t resultat = nb1 * nb2;
 
+    printf("%u * %u = ", nb1, nb2);
     uint32_t entree;
-    uint32_t check = scanf("%d * %d = %d\n", nb1, nb2, &entree);
+    uint32_t check = scanf("%u", &entree);
 
     if((check == -1) || (entree < 0) || (entree > VALEURMAX))
     {
@@ -397,18 +394,19 @@ uint32_t produits(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %d\n\n", resultat);
+      printf("Faux. Le résultat était : %u\n\n", resultat);
     }
 }
 
-uint32_t divisions(uint32_t max)
+void divisions(uint32_t max)
 {
     uint32_t nb1 = rand() % max;
     uint32_t nb2 = rand() % max;
-    uint32_t resultat = nb1 / nb2;
+    float resultat = nb1 / nb2;
 
-    uint32_t entree;
-    uint32_t check = scanf("%d / %d = %d\n", nb1, nb2, &entree);
+    printf("%u / %u = ", nb1, nb2);
+    float entree;
+    uint32_t check = scanf("%f", &entree);
 
     if((check == -1) || (entree < 0) || (entree > VALEURMAX))
     {
@@ -422,13 +420,14 @@ uint32_t divisions(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %d\n\n", resultat);
+      printf("Faux. Le résultat était : %f\n\n", resultat);
     }
 }
 
 void autresExercices(uint32_t exercice, uint32_t max)
 {
   uint32_t continuer = 1;
+  uint32_t check;
 
   while(continuer == 1)
   {
@@ -452,17 +451,17 @@ void autresExercices(uint32_t exercice, uint32_t max)
       divisions(max);
     }
 
-    check =
-    scanf
+    printf
     (
       "Continuer :\t\t- 1\n"
-      "Revenir au menu :\t- 2\n",
-      &continuer
+      "Revenir au menu :\t- 2\n"
     );
+
+    check = scanf("%u", &continuer);
 
     if((check == -1) || (continuer < 1) || (continuer > 2))
     {
-      scanfError(resultat);
+      scanfError(continuer);
     }
   }
 
@@ -470,17 +469,15 @@ void autresExercices(uint32_t exercice, uint32_t max)
 }
 
 // MAIN
-uint32_t main()
+int main()
 {
   srand(time(NULL));
 
   uint32_t exercice;
 
-  while(exercice != 0)
+  while(1)
   {
-    uint32_t max;
-    uint32_t check =
-    scanf
+    printf
     (
       "Choisissez un programme d'entraînement en entrant le numéro correspondant :\n"
       "Sortie du programme\t- 0\n"
@@ -489,13 +486,22 @@ uint32_t main()
       "Soustractions\t\t- 3\n"
       "Multiplications\t\t- 4\n"
       "Divisions\t\t- 5\n"
-      "%d\n",
-      &exercice
     );
+
+    uint32_t max;
+    uint32_t check =
+    scanf("%u", &exercice);
 
     if((check == -1) || (exercice < 0) || (exercice > (NBREXERCICES - 1)))
     {
-      scanfError(choix);
+      scanfError(exercice);
+    }
+
+    else if(exercice == 0)
+    {
+      printf("Sortie du programme.\n\n");
+
+      exit(0);
     }
 
     else if(exercice == 1)
@@ -505,7 +511,9 @@ uint32_t main()
 
     else
     {
-      check = scanf("Choisissez la valeur maximum que peuvent prendre les nombres (maximum de %d) : %d\n", VALEURMAX, &max);
+      printf("Choisissez la valeur maximum que peuvent prendre les nombres (maximum de %u) :\n", VALEURMAX);
+
+      check = scanf("%u", &max);
 
       if((check == -1) || (max < 0) || (max > VALEURMAX))
       {
@@ -518,8 +526,4 @@ uint32_t main()
       }
     }
   }
-
-  printf("Sortie du programme.\n\n");
-
-  exit(0);
 }
