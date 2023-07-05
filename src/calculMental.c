@@ -13,7 +13,7 @@
 // CONSTANTES
 #define VALEURMIN 2
 #define VALEURMAX 50000
-#define NBREXERCICES 7
+#define NBREXERCICES 9
 
 // FONCTIONS
 void scanfError(uint32_t valeur)
@@ -333,12 +333,12 @@ void sommes(uint32_t max)
 
     else if(entree == resultat)
     {
-      printf("Correct !\n\n");
+      printf("Correct !\n");
     }
 
     else
     {
-      printf("Faux. Le résultat était : %u\n\n", resultat);
+      printf("Faux. Le résultat était : %u\n", resultat);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -369,12 +369,12 @@ void soustractions(uint32_t max)
 
     else if(entree == resultat)
     {
-      printf("Correct !\n\n");
+      printf("Correct !\n");
     }
 
     else
     {
-      printf("Faux. Le résultat était : %u\n\n", resultat);
+      printf("Faux. Le résultat était : %u\n", resultat);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -405,12 +405,12 @@ void produits(uint32_t max)
 
     else if(entree == resultat)
     {
-      printf("Correct !\n\n");
+      printf("Correct !\n");
     }
 
     else
     {
-      printf("Faux. Le résultat était : %u\n\n", resultat);
+      printf("Faux. Le résultat était : %u\n", resultat);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -443,12 +443,12 @@ void divisionsEntieres(uint32_t max)
 
     else if(entree == resultatDecimal)
     {
-      printf("Correct !\n\n");
+      printf("Correct !\n");
     }
 
     else
     {
-      printf("Faux. Le résultat était : %.2f\n\n", resultatDecimal);
+      printf("Faux. Le résultat était : %.2f\n", resultatDecimal);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -466,6 +466,8 @@ void divisionsDecimales(uint32_t max)
     uint32_t nb2Entier = 1 + (rand() % max);
     float nb2Decimal = nb2Entier / 100.0;
     float resultat = nb1Decimal / nb2Decimal;
+    uint32_t resultatEntier = resultat * 100;
+    float resultatDecimal = resultatEntier / 100.0;
 
     printf("%.2f / %.2f = ", nb1Decimal, nb2Decimal);
     float entree;
@@ -481,14 +483,14 @@ void divisionsDecimales(uint32_t max)
       break;
     }
 
-    else if(entree == resultat)
+    else if(entree == resultatDecimal)
     {
-      printf("Correct !\n\n");
+      printf("Correct !\n");
     }
 
     else
     {
-      printf("Faux. Le résultat était : %.2f\n\n", resultat);
+      printf("Faux. Le résultat était : %.2f\n", resultatDecimal);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -503,6 +505,8 @@ void produitEnCroix(uint32_t max)
     uint32_t prix1 = 1 + (rand() % max);
     uint32_t nb2 = 1 + (rand() % max);
     float resultat = (float)nb2 * (float)prix1 / (float)nb1;
+    uint32_t resultatEntier = resultat * 100;
+    float resultatDecimal = resultatEntier / 100.0;
 
     printf("%u produits valent %u. Combien valent %u produits ?\n", nb1, prix1, nb2);
     float entree;
@@ -518,14 +522,89 @@ void produitEnCroix(uint32_t max)
       break;
     }
 
-    else if(entree == resultat)
+    else if(entree == resultatDecimal)
     {
-      printf("Correct !\n\n");
+      printf("Correct !\n");
     }
 
     else
     {
-      printf("Faux. Le résultat était : %.2f\n\n", resultat);
+      printf("Faux. Le résultat était : %.2f\n", resultatDecimal);
+    }
+
+    while((entree = getchar()) != '\n' && entree != EOF);
+  }
+}
+
+void calculPourcentages(uint32_t max)
+{
+  while(1)
+  {
+    uint32_t prix1 = 1 + (rand() % max);
+    uint32_t prix2 = prix1 + (rand() % (max - prix1));
+    float resultat = ((float)prix2 / (float)prix1 * 100.0) - 100.0;
+    uint32_t resultatEntier = resultat;
+
+    printf("Un produit vaut %u. Suite à l'inflation son nouveau prix passe à %u. Quel est le pourcentage de l'augmentation ?\n", prix1, prix2);
+    uint32_t entree;
+    uint32_t check = scanf("%u", &entree);
+
+    if(check == -1)
+    {
+      scanfError(entree);
+    }
+
+    else if(entree == UINT32_MAX)
+    {
+      break;
+    }
+
+    else if(entree == resultatEntier)
+    {
+      printf("Correct !\n");
+    }
+
+    else
+    {
+      printf("Faux. Le résultat était : %u\n", resultatEntier);
+    }
+
+    while((entree = getchar()) != '\n' && entree != EOF);
+  }
+}
+
+void calculNouveauPrix(uint32_t max)
+{
+  while(1)
+  {
+    uint32_t prix = 1 + (rand() % max);
+    uint32_t pourcentageEntier = 110 + (rand() % 90);
+    float pourcentageDecimal = pourcentageEntier / 100.0;
+    float resultat = (float)prix * pourcentageDecimal;
+    uint32_t resultatEntier = resultat;
+
+    printf("Un produit vaut %u. Suite à l'inflation son prix augmente de %u%%. Quel est le nouveau prix ?\n", prix, pourcentageEntier - 100);
+    uint32_t entree;
+    uint32_t check = scanf("%u", &entree);
+
+    if(check == -1)
+    {
+      scanfError(entree);
+    }
+
+    else if(entree == UINT32_MAX)
+    {
+      break;
+    }
+
+    else if(entree == resultatEntier)
+    {
+      printf("Correct !\n");
+    }
+
+    else
+    {
+      printf("Faux. Le résultat était : %u\n", resultatEntier);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -541,6 +620,8 @@ int main()
 
   while(1)
   {
+    printf("\n\n\n\n");
+
     printf
     (
       "Choisissez un programme d'entraînement en entrant le numéro correspondant :\n"
@@ -548,9 +629,11 @@ int main()
       "Additions\t\t\t\t\t\t\t... 2\n"
       "Soustractions\t\t\t\t\t\t\t... 3\n"
       "Multiplications\t\t\t\t\t\t\t... 4\n"
-      "Divisions entières avec précision de 2 décimales sans arrondi\t... 5\n"
-      "Divisions avec précision de 2 décimales sans arrondi\t\t... 6\n"
-      "Produit en croix avec précision de 2 décimales sans arrondi\t... 7\n"
+      "Divisions entières à 2 décimales près sans arrondi\t\t... 5\n"
+      "Divisions à 2 décimales près sans arrondi\t\t\t... 6\n"
+      "Produits en croix à 2 décimales près sans arrondi\t\t... 7\n"
+      "Calcul de pourcentages au pourcent près sans arrondi\t\t... 8\n"
+      "Calcul de nouveau prix à l'entier près sans arrondi\t\t... 9\n"
       "Quitter le programme\t\t\t\t\t\t... -1\n"
     );
 
@@ -620,6 +703,16 @@ int main()
       else if (exercice == 7)
       {
         produitEnCroix(max);
+      }
+
+      else if (exercice == 8)
+      {
+        calculPourcentages(max);
+      }
+
+      else if (exercice == 9)
+      {
+        calculNouveauPrix(max);
       }
     }
 
