@@ -1,5 +1,6 @@
 Simple programme de calcul mental.
 
+Le fichier exe est un exécutabke destiné aux systèmes sous Windows.
 Pour exécuter les commandes ci-dessous, ouvrir une console dans le répertoire de ce README.
 
 - Compiler le programme :

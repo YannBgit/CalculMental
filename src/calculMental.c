@@ -630,7 +630,7 @@ int main()
       "Soustractions\t\t\t\t\t\t\t... 3\n"
       "Multiplications\t\t\t\t\t\t\t... 4\n"
       "Divisions entières à 2 décimales près sans arrondi\t\t... 5\n"
-      "Divisions à 2 décimales près sans arrondi\t\t\t... 6\n"
+      "Divisions décimales à 2 décimales près sans arrondi\t\t... 6\n"
       "Produits en croix à 2 décimales près sans arrondi\t\t... 7\n"
       "Calcul de pourcentages au pourcent près sans arrondi\t\t... 8\n"
       "Calcul de nouveau prix à l'entier près sans arrondi\t\t... 9\n"
