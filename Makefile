@@ -22,7 +22,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%$(SRC_EXT) | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(BUILD_DIR) $(NAME)
+	rm -rf $(BUILD_DIR)
 	clear
 
 -include $(OBJ:%$(OBJ_EXT)=%.d)
