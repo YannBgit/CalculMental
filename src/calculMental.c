@@ -261,9 +261,9 @@ void SECPIL()
 
   printf
   (
-    "Des nombres vont apparaître en gros. Additionnez les jusqu'à la fin de l'épreuve puis écrivez le résultat final.\n"
-    "Chaque nombre apparaît puis disparaît pendant 3 secondes.\n"
-    "Début du test dans 3 secondes...\n\n"
+    "Des nombres vont apparaitre en gros. Additionnez les jusqu'a la fin de l'epreuve puis ecrivez le resultat final.\n"
+    "Chaque nombre apparait puis disparait pendant 3 secondes.\n"
+    "Debut du test dans 3 secondes...\n\n"
   );
   sleep(3);
 
@@ -288,7 +288,7 @@ void SECPIL()
     resultat += nb;
   }
 
-  printf("Entrez le résultat :\n");
+  printf("Entrez le resultat :\n");
   uint32_t entree;
   uint32_t check = scanf("%u", &entree);
 
@@ -304,7 +304,7 @@ void SECPIL()
 
   else
   {
-    printf("Echec du test. Le résultat était %u.\n", resultat);
+    printf("Echec du test. Le resultat etait %u.\n", resultat);
   }
 }
 
@@ -338,7 +338,7 @@ void sommes(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %u\n", resultat);
+      printf("Faux. Le resultat etait : %u\n", resultat);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -374,7 +374,7 @@ void soustractions(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %u\n", resultat);
+      printf("Faux. Le resultat etait : %u\n", resultat);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -410,7 +410,7 @@ void produits(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %u\n", resultat);
+      printf("Faux. Le resultat etait : %u\n", resultat);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -448,7 +448,7 @@ void divisionsEntieres(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %.2f\n", resultatDecimal);
+      printf("Faux. Le resultat etait : %.2f\n", resultatDecimal);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -490,7 +490,7 @@ void divisionsDecimales(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %.2f\n", resultatDecimal);
+      printf("Faux. Le resultat était : %.2f\n", resultatDecimal);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -529,7 +529,7 @@ void produitEnCroix(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %.2f\n", resultatDecimal);
+      printf("Faux. Le resultat etait : %.2f\n", resultatDecimal);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -545,7 +545,7 @@ void calculPourcentages(uint32_t max)
     float resultat = ((float)prix2 / (float)prix1 * 100.0) - 100.0;
     uint32_t resultatEntier = resultat;
 
-    printf("Un produit vaut %u. Suite à l'inflation son nouveau prix passe à %u. Quel est le pourcentage de l'augmentation ?\n", prix1, prix2);
+    printf("Un produit vaut %u. Suite a l'inflation son nouveau prix passe a %u. Quel est le pourcentage de l'augmentation ?\n", prix1, prix2);
     uint32_t entree;
     uint32_t check = scanf("%u", &entree);
 
@@ -566,7 +566,7 @@ void calculPourcentages(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %u\n", resultatEntier);
+      printf("Faux. Le resultat etait : %u\n", resultatEntier);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -583,7 +583,7 @@ void calculNouveauPrix(uint32_t max)
     float resultat = (float)prix * pourcentageDecimal;
     uint32_t resultatEntier = resultat;
 
-    printf("Un produit vaut %u. Suite à l'inflation son prix augmente de %u%%. Quel est le nouveau prix ?\n", prix, pourcentageEntier - 100);
+    printf("Un produit vaut %u. Suite a l'inflation son prix augmente de %u%%. Quel est le nouveau prix ?\n", prix, pourcentageEntier - 100);
     uint32_t entree;
     uint32_t check = scanf("%u", &entree);
 
@@ -604,7 +604,7 @@ void calculNouveauPrix(uint32_t max)
 
     else
     {
-      printf("Faux. Le résultat était : %u\n", resultatEntier);
+      printf("Faux. Le resultat etait : %u\n", resultatEntier);
     }
 
     while((entree = getchar()) != '\n' && entree != EOF);
@@ -624,16 +624,17 @@ int main()
 
     printf
     (
-      "Choisissez un programme d'entraînement en entrant le numéro correspondant :\n"
+      "Pour eviter les conflits entre les differentes normes, les instructions seront ecrites sans accents.\n\n"
+      "Choisissez un programme d'entrainement en entrant le numero correspondant :\n"
       "SECPIL\t\t\t\t\t\t\t\t... 1\n"
       "Additions\t\t\t\t\t\t\t... 2\n"
       "Soustractions\t\t\t\t\t\t\t... 3\n"
       "Multiplications\t\t\t\t\t\t\t... 4\n"
-      "Divisions entières à 2 décimales près sans arrondi\t\t... 5\n"
-      "Divisions décimales à 2 décimales près sans arrondi\t\t... 6\n"
-      "Produits en croix à 2 décimales près sans arrondi\t\t... 7\n"
-      "Calcul de pourcentages au pourcent près sans arrondi\t\t... 8\n"
-      "Calcul de nouveau prix à l'entier près sans arrondi\t\t... 9\n"
+      "Divisions entieres a 2 decimales pres sans arrondi\t\t... 5\n"
+      "Divisions decimales a 2 decimales pres sans arrondi\t\t... 6\n"
+      "Produits en croix a 2 decimales pres sans arrondi\t\t... 7\n"
+      "Calcul de pourcentages au pourcent pres sans arrondi\t\t... 8\n"
+      "Calcul de nouveau prix à l'entier pres sans arrondi\t\t... 9\n"
       "Quitter le programme\t\t\t\t\t\t... -1\n"
     );
 
@@ -672,7 +673,7 @@ int main()
       printf
       (
         "Munissez-vous d'une feuille et d'un stylo. Il n'y a pas de limite de temps.\n"
-        "Pour retourner au menu, entrez '-1' comme réponse à tout moment.\n"
+        "Pour retourner au menu, entrez '-1' comme reponse à tout moment.\n"
       );
 
       if(exercice == 2)
